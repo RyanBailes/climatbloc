@@ -1,12 +1,12 @@
 class CustomNavbar extends HTMLElement {
   constructor() {
-    super();
-    this.attachShadow({ mode: 'open' });
+    super()
+    this.attachShadow({ mode: "open" })
   }
 
   connectedCallback() {
-    this.render();
-    this.setupMobileMenu();
+    this.render()
+    this.setupMobileMenu()
   }
 
   render() {
@@ -85,7 +85,7 @@ class CustomNavbar extends HTMLElement {
             position: absolute; top: 100%; left: 0; right: 0;
             background: rgba(255, 255, 255, 0.98);
             flex-direction: column;
-            padding: 1rem; gap: 1rem;
+            padding: 1.5rem 1rem 2rem; gap: 1rem;
             border-top: 1px solid #E5E5E5;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
           }
@@ -100,7 +100,7 @@ class CustomNavbar extends HTMLElement {
         </a>
 
         <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
-          ${this.icon('menu')}
+          ${this.icon("menu")}
         </button>
 
         <ul class="nav-links">
@@ -110,7 +110,7 @@ class CustomNavbar extends HTMLElement {
           <li><a href="/contact.html" class="cta-button">Contact</a></li>
         </ul>
       </nav>
-    `;
+    `
   }
 
   icon(name) {
@@ -130,53 +130,54 @@ class CustomNavbar extends HTMLElement {
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6"  y1="6" x2="18" y2="18"></line>
         </svg>
-      `
-    };
-    return icons[name] || '';
+      `,
+    }
+    return icons[name] || ""
   }
 
   setupMobileMenu() {
-    const menuBtn = this.shadowRoot.querySelector('.mobile-menu-btn');
-    const navLinks = this.shadowRoot.querySelector('.nav-links');
+    const menuBtn = this.shadowRoot.querySelector(".mobile-menu-btn")
+    const navLinks = this.shadowRoot.querySelector(".nav-links")
 
     const setIcon = (open) => {
-      menuBtn.innerHTML = open ? this.icon('x') : this.icon('menu');
-      menuBtn.setAttribute('aria-expanded', String(open));
-    };
+      menuBtn.innerHTML = open ? this.icon("x") : this.icon("menu")
+      menuBtn.setAttribute("aria-expanded", String(open))
+    }
 
-    setIcon(false);
+    setIcon(false)
 
-    menuBtn.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('active');
-      setIcon(isOpen);
-    });
+    menuBtn.addEventListener("click", (e) => {
+      const isOpen = navLinks.classList.toggle("active")
+      setIcon(isOpen)
+    })
 
-    this.shadowRoot.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (navLinks.classList.contains('active')) {
-          navLinks.classList.remove('active');
-          setIcon(false);
+    this.shadowRoot.querySelectorAll(".nav-links a").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (navLinks.classList.contains("active")) {
+          navLinks.classList.remove("active")
+          setIcon(false)
         }
-      });
-    });
+      })
+    })
 
-    // Optional: close menu when clicking outside
     this.outsideClickHandler = (evt) => {
-      const inShadow = this.shadowRoot.contains(evt.target);
-      if (!inShadow && navLinks.classList.contains('active')) {
-        navLinks.classList.remove('active');
-        setIcon(false);
+      const path = evt.composedPath()
+      const clickedInside =
+        path.includes(this) || path.includes(this.shadowRoot)
+      if (!clickedInside && navLinks.classList.contains("active")) {
+        navLinks.classList.remove("active")
+        setIcon(false)
       }
-    };
-    document.addEventListener('click', this.outsideClickHandler);
+    }
+    document.addEventListener("click", this.outsideClickHandler)
   }
 
   disconnectedCallback() {
     // Clean up optional outside-click listener
     if (this.outsideClickHandler) {
-      document.removeEventListener('click', this.outsideClickHandler);
+      document.removeEventListener("click", this.outsideClickHandler)
     }
   }
 }
 
-customElements.define('custom-navbar', CustomNavbar);
+customElements.define("custom-navbar", CustomNavbar)
