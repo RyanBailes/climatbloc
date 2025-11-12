@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us – Calimatbloc</title>
+
+  <!-- Correct favicon path -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+  <!-- Tailwind + Feather -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-50">
+
+  <custom-navbar></custom-navbar>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative">
+    <div class="container mx-auto px-4 text-center py-32">
+      <h1 class="text-5xl font-bold mb-4">About Calimatbloc™</h1>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        We’re redefining how homes and buildings go up - faster, smarter, stronger, and more efficient.
+      </p>
+    </div>
+  </section>
+
+  <!-- Our Story Section -->
+  <section class="section section-light">
+    <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-3xl font-semibold mb-4">Our Story</h2>
+        <p>At Calimatbloc, we saw the same problem every builder knows: tight budgets, long schedules, high energy bills. So we rolled up our sleeves and engineered a better way.</p>
+        <p>Our interlocking block system was born right here in the USA - built by designers and machinists who’ve been on job-sites. We set out to make a building process that doesn’t compromise speed for strength, or insulation for sustainability.</p>
+      </div>
+      <div>
+        <!-- remove /static/ -->
+        <img src="/images/our-story.jpg" alt="Calimatbloc team at work" class="rounded-xl shadow-lg w-full" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="section section-gray">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-semibold text-center mb-8">Why Builders Choose Us</h2>
+
+      <!-- grid-3 -> grid-cols-3 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div>
+          <!-- bg-yellow -> brand gold -->
+          <div class="w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto bg-[#c6ba00]">
+            <i data-feather="zap" class="text-black"></i>
+          </div>
+          <h3 class="font-semibold">Fast Setup</h3>
+          <p class="text-gray-600">From slab to dry-in in days, not weeks.</p>
+        </div>
+
+        <div>
+          <div class="w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto bg-[#c6ba00]">
+            <i data-feather="thermometer" class="text-black"></i>
+          </div>
+          <h3 class="font-semibold">Superior Insulation</h3>
+          <p class="text-gray-600">R-values from R-19 to R-84 for any climate zone.</p>
+        </div>
+
+        <div>
+          <div class="w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto bg-[#c6ba00]">
+            <i data-feather="shield" class="text-black"></i>
+          </div>
+          <h3 class="font-semibold">Engineered Strength</h3>
+          <p class="text-gray-600">Strong as concrete, lighter, built for extreme weather.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Mission & Values Section -->
+  <section class="section section-light">
+    <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <!-- remove /static/ -->
+        <img src="/images/mission.jpg" alt="Mission image" class="rounded-xl shadow-lg w-full" loading="lazy">
+      </div>
+      <div>
+        <h2 class="text-3xl font-semibold mb-4">Our Mission &amp; Values</h2>
+        <p>We believe in building America, with American-made materials, American jobs, and American values. We’re committed to innovation, reliability, and integrity in everything we deliver.</p>
+        <ul class="list-disc list-inside space-y-2 text-gray-600">
+          <li>Manufactured in the USA using locally-sourced materials.</li>
+          <li>Sustainable building systems designed for today’s energy demands.</li>
+          <li>Backed by excellent service and engineering support.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="section section-gray">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-semibold text-center mb-8">Meet the Team</h2>
+
+      <!-- fix weird hyphen and grid class -->
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Example cards -->
+        <div class="card text-center p-6 bg-white rounded-xl shadow-sm">
+          <img src="/images/team1.jpg" alt="Jeremy Flynn, CEO/COO" class="rounded-full w-32 h-32 mx-auto mb-4 object-cover" loading="lazy">
+          <h3 class="font-semibold">Jeremy Flynn, CEO/COO</h3>
+          <p class="text-gray-600">25 years; Ivy League-educated, serial commercial and residential developer renowned for his expertise across harsh climates.</p>
+        </div>
+
+        <div class="card text-center p-6 bg-white rounded-xl shadow-sm">
+          <img src="/images/team2.jpg" alt="Mac Radford, Inventor and CTO" class="rounded-full w-32 h-32 mx-auto mb-4 object-cover" loading="lazy">
+          <h3 class="font-semibold">Mac Radford, Inventor/ CTO</h3>
+          <p class="text-gray-600">41 years; Extensive experience in building construction and commercial &amp; residential building development. His passion is “finding a better way”!</p>
+        </div>
+
+        <div class="card text-center p-6 bg-white rounded-xl shadow-sm">
+          <img src="/images/team3.jpg" alt="Dr. Pandwe Gibson, CDO" class="rounded-full w-32 h-32 mx-auto mb-4 object-cover" loading="lazy">
+          <h3 class="font-semibold">Dr. Pandwe Gibson, CDO</h3>
+          <p class="text-gray-600">25 years; Globally renowned speaker and published researcher on supply chain management, manufacturing automation, and green technology innovation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Call to Action Section -->
+  <section class="section section-light">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-semibold mb-4">Let’s Build Something Great</h2>
+      <p class="text-lg text-gray-600 mb-6">Ready to learn how Calimatbloc™ can cut your build times and energy bills? Get in touch with our team now.</p>
+      <a href="/contact" class="inline-block px-6 py-3 rounded-lg bg-[#c6ba00] text-white font-semibold hover:opacity-90 transition">
+        Contact Us
+      </a>
+    </div>
+  </section>
+
+  <custom-footer></custom-footer>
+
+  <script src="components/navbar.js"></script>
+  <script src="components/footer.js"></script>
+  <script>
+    feather.replace();
+  </script>
+</body>
+</html>
