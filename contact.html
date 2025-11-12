@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Calimatbloc</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+  <!-- Tailwind + Feather -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <!-- Optional site stylesheet for your .section utilities, etc. -->
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Talk with Calimatbloc about engineered wall systems and foundation solutions. Get specs, pricing, and timeline guidance." />
+
+  <!-- JSON-LD ContactPage schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Calimatbloc",
+    "url": "https://www.calimatbloc.com/contact",
+    "about": {
+      "@type": "Organization",
+      "name": "Calimatbloc"
+    }
+  }
+  </script>
+</head>
+<body class="bg-gray-50">
+
+  <!-- Navbar -->
+  <custom-navbar></custom-navbar>
+
+  <!-- Hero -->
+  <section class="relative bg-[#262523] text-white">
+    <div class="container mx-auto px-4 py-24 text-center">
+      <h1 class="text-5xl font-bold mb-4">Contact Calimatbloc</h1>
+      <p class="text-lg text-gray-200 max-w-2xl mx-auto">
+        Tell us about your project and we will get you specs, pricing, and next steps.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Content -->
+  <section class="py-16">
+    <div class="container mx-auto px-4 grid lg:grid-cols-3 gap-10">
+      <!-- Left column: company info -->
+      <aside class="lg:col-span-1">
+        <div class="bg-white rounded-xl shadow-sm p-6">
+          <h2 class="text-xl font-semibold mb-4">Talk to our team</h2>
+          <ul class="space-y-4 text-gray-700">
+            <li class="flex items-start gap-3">
+              <i data-feather="mail"></i>
+              <span><a class="underline hover:no-underline" href="mailto:info@calimatbloc.com">info@calimatbloc.com</a></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-feather="phone"></i>
+              <span><a class="underline hover:no-underline" href="tel:+1-555-555-5555">+1 555 555 5555</a></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-feather="map-pin"></i>
+              <span>USA based manufacturing and support</span>
+            </li>
+          </ul>
+
+          <hr class="my-6">
+
+          <h3 class="font-semibold mb-2">Typical response time</h3>
+          <p class="text-gray-600">Within one business day.</p>
+
+          <h3 class="font-semibold mt-6 mb-2">Business hours</h3>
+          <p class="text-gray-600">Mon to Fri, 9 AM to 5 PM CT</p>
+        </div>
+
+        <div class="mt-6 bg-white rounded-xl shadow-sm p-6">
+          <h3 class="font-semibold mb-2">Looking for specs</h3>
+          <p class="text-gray-600">
+            Ask for foundation blocks, engineered wall systems, or complete packages. We will send PDFs upon request.
+          </p>
+        </div>
+      </aside>
+
+      <!-- Right column: form -->
+      <div class="lg:col-span-2">
+        <form
+          id="contact-form"
+          class="bg-white rounded-xl shadow-sm p-6"
+          action="https://usebasin.com/f/feca0e5caf01"
+          method="POST"
+          enctype="application/x-www-form-urlencoded"
+          novalidate
+        >
+          <h2 class="text-2xl font-semibold mb-6">Tell us about your project</h2>
+
+          <!-- Honeypot for bots -->
+          <input type="text" name="company_website" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name*</label>
+              <input id="name" name="name" type="text" required
+                     class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#c6ba00]" />
+            </div>
+
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email*</label>
+              <input id="email" name="email" type="email" required
+                     class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#c6ba00]" />
+            </div>
+
+            <div>
+              <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+              <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="Optional"
+                     class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#c6ba00]" />
+            </div>
+
+            <div>
+              <label for="company" class="block text-sm font-medium text-gray-700 mb-1">Company</label>
+              <input id="company" name="company" type="text" placeholder="Optional"
+                     class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#c6ba00]" />
+            </div>
+
+            <div>
+              <label for="projectType" class="block text-sm font-medium text-gray-700 mb-1">Project Type*</label>
+              <select id="projectType" name="projectType" required
+                      class="w-full rounded-lg border border-gray-300 px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-[#c6ba00]">
+                <option value="" disabled selected>Select one</option>
+                <option>Foundation Blocks</option>
+                <option>Engineered Wall System</option>
+                <option>Complete Package</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="timeline" class="block text-sm font-medium text-gray-700 mb-1">Timeline</label>
+              <select id="timeline" name="timeline"
+                      class="w-full rounded-lg border border-gray-300 px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-[#c6ba00]">
+                <option value="" selected>No preference</option>
+                <option>0 to 3 months</option>
+                <option>3 to 6 months</option>
+                <option>6 to 12 months</option>
+                <option>12 months or more</option>
+              </select>
+            </div>
+
+            <div class="md:col-span-2">
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message*</label>
+              <textarea id="message" name="message" rows="6" required
+                        class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#c6ba00]"
+                        placeholder="Tell us where you will build, square footage, and any requirements."></textarea>
+            </div>
+          </div>
+
+          <!-- Consent -->
+          <div class="mt-6 flex items-start gap-3">
+            <input id="consent" name="consent" type="checkbox" required class="mt-1">
+            <label for="consent" class="text-sm text-gray-700">
+              I agree to be contacted about my inquiry.
+            </label>
+          </div>
+
+          <!-- Submit -->
+          <div class="mt-6">
+            <button type="submit"
+                    id="submitBtn"
+                    class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#c6ba00] text-white font-semibold hover:opacity-90 transition">
+              <i data-feather="send"></i>
+              <span>Send Message</span>
+            </button>
+          </div>
+
+          <!-- Success and error messages -->
+          <p id="form-success" class="hidden mt-4 text-green-700">Thank you. Your message has been sent.</p>
+          <p id="form-error" class="hidden mt-4 text-red-700">Something went wrong. Please try again.</p>
+
+          <!-- Inbox routing -->
+          <input type="hidden" name="subject" value="New Calimatbloc Contact" />
+          <!-- Want a redirect instead of inline success? Uncomment: -->
+          <!-- <input type="hidden" name="redirect" value="/thank-you.html" /> -->
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <section class="py-12 bg-[#f5f5f5]">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-gray-700">
+        Prefer email or phone, no problem. We will meet you where you are and keep it simple.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <custom-footer></custom-footer>
+
+  <!-- Scripts -->
+  <script src="components/navbar.js"></script>
+  <script src="components/footer.js"></script>
+  <script>
+    feather.replace();
+
+    // AJAX submit to UseBasin with inline success/error messages
+    const form = document.getElementById('contact-form');
+    const btn  = document.getElementById('submitBtn');
+    const ok   = document.getElementById('form-success');
+    const err  = document.getElementById('form-error');
+
+    function show(el){ el.classList.remove('hidden'); }
+    function hide(el){ el.classList.add('hidden'); }
+
+    function setLoading(s){
+      btn.disabled = s;
+      btn.classList.toggle('opacity-70', s);
+      btn.classList.toggle('cursor-not-allowed', s);
+    }
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      hide(ok); hide(err);
+
+      // HTML5 validation pass-through
+      if (!form.checkValidity()) {
+        // Let browser show native messages
+        form.reportValidity();
+        return;
+      }
+
+      // Honeypot quick exit
+      if (form.company_website && form.company_website.value) {
+        show(err);
+        return;
+      }
+
+      try {
+        setLoading(true);
+        const resp = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        if (resp.ok) {
+          form.reset();
+          show(ok);
+        } else {
+          show(err);
+        }
+      } catch (_) {
+        show(err);
+      } finally {
+        setLoading(false);
+      }
+    });
+  </script>
+</body>
+</html>

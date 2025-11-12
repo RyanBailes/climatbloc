@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClimatBloc™ - Sustainable Building Solutions</title>
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
+
+  <!-- Tailwind first -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Feather (single include) -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <!-- Vanta / three -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+
+  <!-- Fonts + base styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --primary-yellow:#e5d708;
+      --primary-black:#000000;
+      --primary-white:#ffffff;
+      --text-primary:#000000;
+      --text-secondary:#666666;
+      --bg-primary:#ffffff;
+      --bg-secondary:#f7f7f7;
+      --bg-dark:#000000;
+      --border-light:#e5e5e5;
+    }
+
+    *{box-sizing:border-box}
+    html,body{max-width:100%;overflow-x:hidden}
+    body{
+      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text-primary);
+      background:var(--bg-primary);
+      line-height:1.6;
+      scroll-behavior:smooth;
+    }
+
+    /* Type */
+    h1,h2,h3,h4,h5,h6{font-weight:700;line-height:1.2;margin-bottom:1rem;color:var(--text-primary)}
+    h1{font-size:3rem}
+    h2{font-size:2.5rem}
+    h3{font-size:2rem}
+    h4{font-size:1.5rem}
+    h5{font-size:1.25rem}
+    h6{font-size:1rem}
+    p{margin-bottom:1rem;color:var(--text-secondary);font-size:1.125rem}
+
+    /* Layout */
+    .container{max-width:1200px;margin:0 auto;padding:0 1rem}
+    .section{padding:5rem 0}
+    .section-light{background-color:var(--bg-primary)}
+    .section-gray{background-color:var(--bg-secondary)}
+    .section-dark{background-color:var(--bg-dark);color:var(--primary-white)}
+
+    /* Buttons */
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:1rem 2rem;border:none;border-radius:.5rem;
+      font-weight:600;text-decoration:none;transition:all .3s;cursor:pointer;font-size:1rem;text-align:center
+    }
+    .btn-primary{background:var(--primary-yellow);color:var(--primary-black)}
+    .btn-primary:hover{background:var(--primary-black);color:var(--primary-white);transform:translateY(-2px);box-shadow:0 10px 25px rgba(229,215,8,.3)}
+    .btn-secondary{background:transparent;color:var(--primary-white);border:2px solid var(--primary-white)}
+    .btn-secondary:hover{background:var(--primary-black);color:var(--primary-white);transform:translateY(-2px)}
+
+    /* Cards */
+    .card{background:var(--bg-primary);border-radius:1rem;padding:2rem;border:1px solid var(--border-light);box-shadow:0 4px 20px rgba(0,0,0,.08);transition:all .3s}
+    .card:hover{transform:translateY(-5px);box-shadow:0 10px 30px rgba(0,0,0,.15)}
+    .card-yellow{border-top:4px solid var(--primary-yellow)}
+    .card-dark{background:var(--bg-dark);color:var(--primary-white)}
+
+    /* Grid helpers */
+    .grid{display:grid;gap:2rem}
+    .grid-2{grid-template-columns:repeat(2,1fr)}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+
+    /* Hero */
+    .hero{
+      min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;
+      background:linear-gradient(135deg,var(--bg-primary) 0%,var(--bg-secondary) 100%)
+    }
+    .hero h1{
+      font-size:4rem;margin-bottom:1.5rem;
+      background:linear-gradient(135deg,#ffffff 0%,#e5d708 100%);
+      -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent
+    }
+    .hero p{font-size:1.5rem;color:#ffffff!important;margin-bottom:2rem}
+
+    /* Vanta canvas */
+    #vanta-bg,#vanta-bg canvas{position:absolute;inset:0}
+    #vanta-bg{z-index:0}
+
+    /* Multiply overlay above canvas, below text */
+    #vanta-overlay{
+      position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;background:rgba(0,0,0,.3);z-index:1
+    }
+    .hero-content{position:relative;z-index:2;max-width:800px;margin-inline:auto}
+
+    /* Trust badges */
+    .trust-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:var(--bg-secondary);border-radius:2rem;font-size:.875rem;font-weight:500}
+    .trust-badge.yellow{background:var(--primary-yellow);color:var(--primary-black)}
+
+    /* Images */
+    .image-frame{border:3px solid var(--primary-black);border-radius:1rem;overflow:hidden;position:relative}
+    .image-frame::before{content:"";position:absolute;inset:0;background:linear-gradient(45deg,rgba(229,215,8,.1),transparent);z-index:1}
+
+    /* Stats */
+    .stat-number{font-size:3rem;font-weight:700;color:var(--primary-yellow);display:block}
+    .stat-label{font-size:1rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.1em}
+
+    /* Gallery */
+    .gallery-card{overflow:hidden;border-radius:1rem}
+    .gallery-card img{display:block;transition:transform .3s;width:100%;height:auto}
+    .gallery-card:hover img{transform:scale(1.05)}
+
+    /* Mobile polish (≤768px) */
+    @media (max-width:768px){
+      .hero{min-height:80vh;padding:2.5rem 0 3rem}
+      .hero h1{font-size:clamp(1.9rem,7vw + .2rem,2.6rem);line-height:1.15;margin-bottom:1rem}
+      .hero p{font-size:1.05rem;margin-bottom:1.25rem}
+
+      .hero .flex{width:100%;max-width:22rem;margin-inline:auto}
+      .hero .btn{width:100%}
+
+      .grid-3,.grid-2{grid-template-columns:1fr}
+      .card{padding:1.25rem}
+      .image-frame img{height:auto!important;max-height:320px;object-fit:cover}
+      .section{padding:3rem 0}
+
+      #vanta-overlay{background:rgba(0,0,0,.45)}
+    }
+
+    /* Small tablets (769–1024px) */
+    @media (min-width:769px) and (max-width:1024px){
+      .hero{min-height:85vh;padding:4rem 0}
+      .hero h1{font-size:clamp(2.4rem,3.5vw + 1rem,3.25rem)}
+      .grid-3{grid-template-columns:repeat(2,1fr)}
+      .card{padding:1.5rem}
+      .image-frame img{height:auto!important;max-height:380px;object-fit:cover}
+      #vanta-overlay{background:rgba(0,0,0,.35)}
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50">
+  <custom-navbar></custom-navbar>
+
+  <!-- HERO -->
+  <section id="hero" class="hero relative">
+    <div id="vanta-bg" class="absolute inset-0"></div>
+    <div id="vanta-overlay" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="hero-content">
+        <h1>Build Faster. Build Smarter. Build with ClimatBloc™</h1>
+        <p>The interlocking block system engineered in the USA that gets homes from slab to dried-in in days, not weeks.</p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center w-full">
+          <a href="/products.html" class="btn btn-primary">Check Out Our Products</a>
+          <a href="/about.html" class="btn btn-secondary">About Us</a>
+        </div>
+
+        <div class="mt-8 grid grid-3 gap-4 justify-items-center">
+          <div class="trust-badge"><i data-feather="clock"></i><span>Save 50-70% Build Time</span></div>
+          <div class="trust-badge"><i data-feather="dollar-sign"></i><span>Reduce Costs 30-40%</span></div>
+          <div class="trust-badge yellow"><i data-feather="award"></i><span>Made in USA</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFFERENTIATORS -->
+  <section id="differentiators" class="section section-light">
+    <div class="container">
+      <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Why Builders Choose ClimatBloc™</h2>
+
+      <div class="grid grid-3">
+        <div class="card card-yellow text-center">
+          <div class="w-16 h-16 bg-[var(--primary-yellow)] rounded-full flex items-center justify-center mb-4 mx-auto">
+            <i data-feather="zap" class="text-black"></i>
+          </div>
+          <h3>Lightning Fast Installation</h3>
+          <p>Complete foundation and wall systems in hours instead of days. Our interlocking blocks stack and lock together effortlessly.</p>
+        </div>
+
+        <div class="card card-yellow text-center">
+          <div class="w-16 h-16 bg-[var(--primary-yellow)] rounded-full flex items-center justify-center mb-4 mx-auto">
+            <i data-feather="thermometer" class="text-black"></i>
+          </div>
+          <h3>Superior Insulation</h3>
+          <p>Custom R-values from R-19 to R-84. Passive wall design eliminates condensation and mold while providing superior sound barrier.</p>
+        </div>
+
+        <div class="card card-yellow text-center">
+          <div class="w-16 h-16 bg-[var(--primary-yellow)] rounded-full flex items-center justify-center mb-4 mx-auto">
+            <i data-feather="shield" class="text-black"></i>
+          </div>
+          <h3>Engineered Strength</h3>
+          <p>Strong as concrete with a fraction of the weight. Engineered for seismic zones and extreme weather conditions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products" class="section section-gray">
+    <div class="container">
+      <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Our Revolutionary Building Systems</h2>
+
+      <div class="grid grid-2 gap-8">
+        <!-- Foundation Blocks -->
+        <div class="card">
+          <div class="image-frame mb-6">
+            <img src="https://images.squarespace-cdn.com/content/v1/68eab2c513673b4ac8b53545/ddbef0b1-eda2-41e0-8484-9cf79baf8cc0/House+Plan.png" alt="Foundation Blocks" class="w-full h-64 object-cover" />
+          </div>
+
+          <div class="w-16 h-16 bg-[var(--primary-yellow)] rounded-full flex items-center justify-center mb-4">
+            <i data-feather="layers" class="text-black"></i>
+          </div>
+
+          <h3>Foundation Blocks</h3>
+          <p class="text-lg mb-4">Perfect for DIY weekend warriors, custom home builders, and large-scale developers. Lightweight blocks that stack and lock together.</p>
+
+          <div class="grid grid-2 gap-2 mb-4">
+            <div class="trust-badge"><i data-feather="check"></i><span>Strong as concrete</span></div>
+            <div class="trust-badge"><i data-feather="check"></i><span>70% faster installation</span></div>
+            <div class="trust-badge"><i data-feather="check"></i><span>Easy DIY assembly</span></div>
+            <div class="trust-badge"><i data-feather="check"></i><span>Cost-effective</span></div>
+          </div>
+
+          <a href="/contact.html" class="btn btn-primary w-full">Get Foundation Specs</a>
+        </div>
+
+        <!-- Exterior Wall System -->
+        <div class="card">
+          <div class="image-frame mb-6">
+            <img src="https://images.squarespace-cdn.com/content/v1/68eab2c513673b4ac8b53545/4a4d6841-f646-4678-92d1-70dd2119a80f/Foundation+Final.png" alt="Exterior Wall System" class="w-full h-64 object-cover" />
+          </div>
+
+          <div class="w-16 h-16 bg-[var(--primary-yellow)] rounded-full flex items-center justify-center mb-4">
+            <i data-feather="home" class="text-black"></i>
+          </div>
+
+          <h3>Exterior Wall System</h3>
+          <p class="text-lg mb-4">Passive design, fully insulated wall blocks for constructing exterior walls quickly and efficiently. Ready for siding and finishing.</p>
+
+          <div class="grid grid-2 gap-2 mb-4">
+            <div class="trust-badge"><i data-feather="check"></i><span>R-19 to R-84 insulation</span></div>
+            <div class="trust-badge"><i data-feather="check"></i><span>Mold prevention</span></div>
+            <div class="trust-badge"><i data-feather="check"></i><span>Sound barrier</span></div>
+            <div class="trust-badge"><i data-feather="check"></i><span>Weather resistant</span></div>
+          </div>
+
+          <a href="/contact.html" class="btn btn-primary w-full">Get Wall System Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" class="section section-light">
+    <div class="container">
+      <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">How ClimatBloc™ Works</h2>
+
+      <div class="grid grid-3 gap-8">
+        <div class="text-center">
+          <div class="w-20 h-20 bg-[var(--primary-yellow)] rounded-full flex items-center justify-center mb-4 mx-auto">
+            <span class="text-black text-2xl font-bold">1</span>
+          </div>
+          <h3>Design &amp; Plan</h3>
+          <p>Our engineering team works with you to create custom plans optimized for your specific climate and building requirements.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-20 h-20 bg-[var(--primary-yellow)] rounded-full flex items-center justify-center mb-4 mx-auto">
+            <span class="text-black text-2xl font-bold">2</span>
+          </div>
+          <h3>Deliver &amp; Stack</h3>
+          <p>Blocks arrive pre-cut and ready for assembly. Our interlocking system requires no special tools or heavy equipment.</p>
+        </div>
+
+        <div class="text-center">
+          <div class="w-20 h-20 bg-[var(--primary-yellow)] rounded-full flex items-center justify-center mb-4 mx-auto">
+            <span class="text-black text-2xl font-bold">3</span>
+          </div>
+          <h3>Finish &amp; Enjoy</h3>
+          <p>Complete your build in record time. Enjoy superior insulation, reduced energy costs, and a stronger, more durable structure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNOLOGY -->
+  <section id="technology" class="section section-gray">
+    <div class="container">
+      <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Advanced Climate Technology</h2>
+
+      <div class="grid grid-2 gap-12 items-center">
+        <div>
+          <h3 class="mb-6">Custom R-Values for Every Climate</h3>
+
+          <div class="space-y-4">
+            <div class="card">
+              <h4 class="text-[var(--primary-yellow)] mb-3">Insulation Performance</h4>
+              <p>Designed for every climate on earth. Each block features dual insulation baffles with customizable R-values from R-19 to industry-leading R-84.</p>
+            </div>
+
+            <div class="card">
+              <h4 class="text-black mb-3">Passive Wall Design</h4>
+              <p>Patent-pending design maintains constant airflow, eliminates condensation and mold, while acting as a superior sound barrier.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="image-frame">
+            <img src="https://images.squarespace-cdn.com/content/v1/68eab2c513673b4ac8b53545/8ae2a25a-9489-4c5f-b0ab-e7f63270e52a/Foam+Final.JPG" alt="ClimatBloc™ Insulation" class="w-full rounded-lg" />
+          </div>
+
+          <div class="rvalue-badge absolute md:-right-4 md:-bottom-4 right-4 bottom-4 bg-[var(--primary-yellow)] text-black p-4 rounded-lg shadow-lg">
+            <span class="text-sm font-semibold">R-Value Range: R-19 to R-84</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Our Process in Action</h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="relative gallery-card group shadow-lg">
+          <img src="https://images.squarespace-cdn.com/content/v1/68eab2c513673b4ac8b53545/ddbef0b1-eda2-41e0-8484-9cf79baf8cc0/House+Plan.png" alt="House Planning" class="rounded-2xl transition duration-300" />
+          <div class="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/20 rounded-2xl transition duration-300"></div>
+        </div>
+
+        <div class="relative gallery-card group shadow-lg">
+          <img src="https://images.squarespace-cdn.com/content/v1/68eab2c513673b4ac8b53545/4079b072-e58b-47e1-82b5-bb7a449f77ab/Factory.png" alt="Factory Production" class="rounded-2xl transition duration-300" />
+          <div class="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/20 rounded-2xl transition duration-300"></div>
+        </div>
+
+        <div class="relative gallery-card group shadow-lg">
+          <img src="https://images.squarespace-cdn.com/content/v1/68eab2c513673b4ac8b53545/4a4d6841-f646-4678-92d1-70dd2119a80f/Foundation+Final.png" alt="Foundation" class="rounded-2xl transition duration-300" />
+          <div class="pointer-events-none absolute inset-0 bg-black/0 group-hover:bg-black/20 rounded-2xl transition duration-300"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section section-light">
+    <div class="container text-center">
+      <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Ready to Build Better?</h2>
+      <p class="max-w-2xl mx-auto mb-8 text-gray-600">
+        Tell us about your project and we will follow up with specs, timelines, and pricing.
+      </p>
+      <a href="/contact.html" class="btn btn-primary inline-flex items-center gap-2">
+        <i data-feather="mail"></i><span>Contact Us</span>
+      </a>
+    </div>
+  </section>
+
+  <custom-footer></custom-footer>
+
+  <!-- Component scripts -->
+  <script src="components/navbar.js"></script>
+  <script src="components/footer.js"></script>
+
+  <script>
+    // Feather icons
+    feather.replace();
+
+    // Vanta background
+    VANTA.GLOBE({
+      el: "#vanta-bg",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      color: "#e5d708",
+      backgroundColor: "#282724"
+    });
+  </script>
+</body>
+</html>
