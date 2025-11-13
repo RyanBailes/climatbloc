@@ -31,34 +31,95 @@
       fetchpriority="high"
     />
 
-    <!-- Enhanced JSON-LD Schema -->
+    <!-- JSON-LD Schema - ContactPage + Organization + WebSite -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "WebPage",
+          "@type": [
+            "Organization",
+            "LocalBusiness",
+            "HomeAndConstructionBusiness"
+          ],
+          "@id": "https://www.climatbloc.com/#organization",
+          "name": "ClimatBloc",
+          "url": "https://www.climatbloc.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.climatbloc.com/images/climatbloc-logo-color-white.svg"
+          },
+          "image": "https://www.climatbloc.com/images/climatbloc-hero-image-2.jpg",
+          "telephone": "+1-907-415-9176",
+          "email": "JFlynn@climatbloc.com",
+          "areaServed": {
+            "@type": "Country",
+            "name": "United States"
+          },
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": "+1-907-415-9176",
+              "contactType": "customer service",
+              "areaServed": {
+                "@type": "Country",
+                "name": "United States"
+              },
+              "availableLanguage": "en"
+            }
+          ],
+          "sameAs": [
+            "https://www.facebook.com/climatbloc",
+            "https://www.instagram.com/climatbloc"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.climatbloc.com/#website",
+          "url": "https://www.climatbloc.com/",
+          "name": "ClimatBloc",
+          "publisher": {
+            "@id": "https://www.climatbloc.com/#organization"
+          },
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": ["ContactPage", "WebPage"],
           "@id": "https://www.climatbloc.com/contact.html#webpage",
           "url": "https://www.climatbloc.com/contact.html",
-          "name": "Contact ClimatBloc – Engineered Wall Systems & Foundation Solutions",
+          "name": "Contact ClimatBloc",
           "description": "Get in touch with ClimatBloc to learn more about our sustainable, fully insulated wall and foundation systems. Request specs, pricing, or project guidance.",
-          "isPartOf": { "@id": "https://www.climatbloc.com/#website" },
-          "about": { "@id": "https://www.climatbloc.com/#organization" },
+          "isPartOf": {
+            "@id": "https://www.climatbloc.com/#website"
+          },
+          "about": {
+            "@id": "https://www.climatbloc.com/#organization"
+          },
           "primaryImageOfPage": {
             "@type": "ImageObject",
             "url": "https://www.climatbloc.com/images/climatbloc-hero-image-2.jpg"
-          }
-        },
-        {
-          "@type": "ContactPage",
-          "@id": "https://www.climatbloc.com/contact.html#contactpage",
-          "url": "https://www.climatbloc.com/contact.html",
-          "name": "Contact ClimatBloc",
-          "description": "Reach out to ClimatBloc for inquiries about engineered wall systems, foundation blocks, or full structural packages.",
-          "mainEntity": { "@id": "https://www.climatbloc.com/#organization" },
-          "contactOption": ["TollFree", "HearingImpairedSupported"],
-          "contactType": "Customer Service",
-          "inLanguage": "en",
+          },
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.climatbloc.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Contact ClimatBloc",
+                "item": "https://www.climatbloc.com/contact.html"
+              }
+            ]
+          },
+          "mainEntity": {
+            "@id": "https://www.climatbloc.com/#organization"
+          },
+          "inLanguage": "en-US",
           "speakable": {
             "@type": "SpeakableSpecification",
             "xpath": [
@@ -67,31 +128,6 @@
               "/html/body//section[@id='hero']//p"
             ]
           }
-        },
-        {
-          "@type": "Organization",
-          "@id": "https://www.climatbloc.com/#organization",
-          "name": "ClimatBloc",
-          "url": "https://www.climatbloc.com/",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://www.climatbloc.com/images/climatbloc-logo-color-white.svg"
-          },
-          "email": "JFlynn@climatbloc.com",
-          "telephone": "+1-907-415-9176",
-          "contactPoint": [
-            {
-              "@type": "ContactPoint",
-              "telephone": "+1-907-415-9176",
-              "contactType": "customer service",
-              "areaServed": "US",
-              "availableLanguage": "English"
-            }
-          ],
-          "sameAs": [
-            "https://www.facebook.com/climatbloc",
-            "https://www.instagram.com/climatbloc"
-          ]
         }
       ]
     }
@@ -101,31 +137,31 @@
     <!-- Navbar -->
     <custom-navbar></custom-navbar>
 
-<!-- Hero -->
-<section id="hero" class="relative pt-20">
-  <!-- Static hero image with overlays -->
-  <div class="absolute inset-0 -z-10">
-    <img
-      src="/images/climatbloc-hero-image-2.jpg"
-      alt="Crew assembling ClimatBloc™ interlocking wall system on site"
-      class="w-full h-full object-cover"
-      loading="eager"
-      fetchpriority="high"
-    />
-    <!-- Brand gold multiply -->
-    <div class="absolute inset-0 bg-[#c6ba00]/60 mix-blend-multiply"></div>
-    <!-- Dark shade for contrast -->
-    <div class="absolute inset-0 bg-black/40"></div>
-  </div>
+    <!-- Hero -->
+    <section id="hero" class="relative pt-20">
+      <!-- Static hero image with overlays -->
+      <div class="absolute inset-0 -z-10">
+        <img
+          src="/images/climatbloc-hero-image-2.jpg"
+          alt="Crew assembling ClimatBloc™ interlocking wall system on site"
+          class="w-full h-full object-cover"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <!-- Brand gold multiply -->
+        <div class="absolute inset-0 bg-[#c6ba00]/60 mix-blend-multiply"></div>
+        <!-- Dark shade for contrast -->
+        <div class="absolute inset-0 bg-black/40"></div>
+      </div>
 
-  <!-- Consistent height across non-home pages -->
-  <div class="container mx-auto px-4 relative z-10 py-32 text-center text-white">
-    <h1 class="text-5xl font-bold mb-6 text-[#e5d708]">Contact ClimatBloc™</h1>
-    <p class="text-lg max-w-2xl mx-auto mb-8 text-gray-200">
-      Tell us about your project and we will get you specs, pricing, and next steps.
-    </p>
-  </div>
-</section>
+      <!-- Consistent height across non-home pages -->
+      <div class="container mx-auto px-4 relative z-10 py-32 text-center text-white">
+        <h1 class="text-5xl font-bold mb-6 text-[#e5d708]">Contact ClimatBloc™</h1>
+        <p class="text-lg max-w-2xl mx-auto mb-8 text-gray-200">
+          Tell us about your project and we will get you specs, pricing, and next steps.
+        </p>
+      </div>
+    </section>
 
     <!-- Contact Content -->
     <section class="py-16">
@@ -159,7 +195,7 @@
             <p class="text-gray-600">Within one business day.</p>
 
             <h3 class="font-semibold mt-6 mb-2">Business hours</h3>
-            <p class="text-gray-600">Mon to Fri, 9 AM to 5 PM CT</p>
+            <p class="text-gray-600">Mon to Fri, 10 AM to 8 PM CT</p>
           </div>
 
           <div class="mt-6 bg-white rounded-xl shadow-sm p-6">
@@ -315,7 +351,7 @@
     <section class="py-12 bg-[#f5f5f5]">
       <div class="container mx-auto px-4 text-center">
         <p class="text-gray-700">
-          Prefer email or phone? No problem. We’ll meet you where you are and keep it simple.
+          Prefer email or phone? No problem. We will meet you where you are and keep it simple.
         </p>
       </div>
     </section>
@@ -356,7 +392,11 @@
             body: new FormData(form),
           })
           if (resp.ok) { form.reset(); show(ok) } else { show(err) }
-        } catch { show(err) } finally { setLoading(false) }
+        } catch {
+          show(err)
+        } finally {
+          setLoading(false)
+        }
       })
     </script>
   </body>

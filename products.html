@@ -26,6 +26,202 @@
       imagesrcset="/images/climatbloc-hero-3.jpg"
       fetchpriority="high"
     />
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": [
+            "Organization",
+            "LocalBusiness",
+            "HomeAndConstructionBusiness"
+          ],
+          "@id": "https://www.climatbloc.com/#organization",
+          "name": "ClimatBloc",
+          "url": "https://www.climatbloc.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.climatbloc.com/images/climatbloc-logo-color-white.svg"
+          },
+          "image": "https://www.climatbloc.com/images/climatbloc-hero-3.jpg",
+          "telephone": "+1-907-415-9176",
+          "email": "JFlynn@climatbloc.com",
+          "areaServed": {
+            "@type": "Country",
+            "name": "United States"
+          },
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": "+1-907-415-9176",
+              "contactType": "customer service",
+              "areaServed": {
+                "@type": "Country",
+                "name": "United States"
+              },
+              "availableLanguage": "en"
+            }
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.climatbloc.com/#website",
+          "url": "https://www.climatbloc.com/",
+          "name": "ClimatBloc",
+          "publisher": {
+            "@id": "https://www.climatbloc.com/#organization"
+          },
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": [
+            "CollectionPage",
+            "WebPage"
+          ],
+          "@id": "https://www.climatbloc.com/products.html#webpage",
+          "url": "https://www.climatbloc.com/products.html",
+          "name": "Our Building Systems – ClimatBloc",
+          "description": "Explore the ClimatBloc building systems that make sustainable construction faster, stronger, and smarter.",
+          "isPartOf": {
+            "@id": "https://www.climatbloc.com/#website"
+          },
+          "about": {
+            "@id": "https://www.climatbloc.com/#organization"
+          },
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.climatbloc.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Our Building Systems",
+                "item": "https://www.climatbloc.com/products.html"
+              }
+            ]
+          },
+          "mainEntity": {
+            "@id": "https://www.climatbloc.com/products.html#product-list"
+          },
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": "ItemList",
+          "@id": "https://www.climatbloc.com/products.html#product-list",
+          "name": "ClimatBloc Building Systems",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@id": "https://www.climatbloc.com/products.html#engineered-foundation-wall-system"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@id": "https://www.climatbloc.com/products.html#exterior-wall-blocks"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "item": {
+                "@id": "https://www.climatbloc.com/products.html#engineered-wall-system"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "item": {
+                "@id": "https://www.climatbloc.com/products.html#foundation-blocks"
+              }
+            }
+          ]
+        },
+        {
+          "@type": "Product",
+          "@id": "https://www.climatbloc.com/products.html#engineered-foundation-wall-system",
+          "name": "Engineered Foundation Wall System",
+          "image": [
+            "https://www.climatbloc.com/images/engineered_foundation_wall_system.webp"
+          ],
+          "description": "Engineered foundation walls that create a fully insulated, structurally superior foundation in hours instead of days compared to traditional concrete foundations.",
+          "brand": {
+            "@id": "https://www.climatbloc.com/#organization"
+          },
+          "category": "BuildingComponent",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.climatbloc.com/contact.html",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@type": "Product",
+          "@id": "https://www.climatbloc.com/products.html#exterior-wall-blocks",
+          "name": "Exterior Wall Blocks",
+          "image": [
+            "https://www.climatbloc.com/images/exterior_wall_block.webp"
+          ],
+          "description": "Lightweight, fully insulated exterior wall blocks designed to stack quickly for fast and efficient exterior wall construction.",
+          "brand": {
+            "@id": "https://www.climatbloc.com/#organization"
+          },
+          "category": "BuildingComponent",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.climatbloc.com/contact.html",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@type": "Product",
+          "@id": "https://www.climatbloc.com/products.html#engineered-wall-system",
+          "name": "Engineered Wall System",
+          "image": [
+            "https://www.climatbloc.com/images/engineered_wall_system.webp"
+          ],
+          "description": "Structural, fully insulated wall systems designed to be lifted and set directly in place on your slab or subfloor so exterior wall framing is completed in hours instead of weeks.",
+          "brand": {
+            "@id": "https://www.climatbloc.com/#organization"
+          },
+          "category": "BuildingComponent",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.climatbloc.com/contact.html",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@type": "Product",
+          "@id": "https://www.climatbloc.com/products.html#foundation-blocks",
+          "name": "Foundation Blocks",
+          "image": [
+            "https://www.climatbloc.com/images/foundation_blocks.webp"
+          ],
+          "description": "Lightweight foundation blocks that stack and lock together to form a foundation as strong as concrete with a fraction of the time and cost.",
+          "brand": {
+            "@id": "https://www.climatbloc.com/#organization"
+          },
+          "category": "BuildingComponent",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.climatbloc.com/contact.html",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body class="bg-gray-50">
     <!-- Navbar -->
@@ -179,79 +375,78 @@
       </div>
     </section>
 
-<!-- Climate Custom R-Values & Passive Wall Systems -->
-<section id="r-values" class="bg-gray-50 py-16">
-  <div class="container mx-auto px-4 max-w-6xl">
-    <h2 class="text-3xl font-semibold mb-10">
-      Climate Custom R-Values &amp; Passive Wall Systems
-    </h2>
+    <!-- Climate Custom R-Values & Passive Wall Systems -->
+    <section id="r-values" class="bg-white py-16">
+      <div class="container mx-auto px-4 max-w-6xl">
+        <h2 class="text-3xl font-semibold mb-10">
+          Climate Custom R-Values &amp; Passive Wall Systems
+        </h2>
 
-    <!-- Block 1: image right on desktop, image on top on mobile -->
-    <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
-      <!-- Text -->
-      <div class="order-2 md:order-1">
-        <h3 class="text-xl font-semibold mb-3">
-          Insulation &amp; Customized R-Values
-        </h3>
-        <p>
-          ClimatBlocs are specifically designed to meet the needs and
-          requirements of every climate on earth. Each block is designed and
-          manufactured with two insulation baffles, one on the interior and one
-          on the exterior of the frame. Each baffle can be injected with
-          2.5&quot; of our foam insulation, providing an R-Value of R-19. If you
-          are building in a temperate climate, R-19 may be perfect, however if
-          your location demands more insulation, we can fill both baffles for
-          R-40 or if you live in the frigid arctic we will fill the entire block
-          for an industry leading R-84.
-        </p>
+        <!-- Block 1 -->
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+          <!-- Text -->
+          <div class="order-2 md:order-1">
+            <h3 class="text-xl font-semibold mb-3">
+              Insulation &amp; Customized R-Values
+            </h3>
+            <p>
+              ClimatBlocs are specifically designed to meet the needs and
+              requirements of every climate on earth. Each block is designed and
+              manufactured with two insulation baffles, one on the interior and one
+              on the exterior of the frame. Each baffle can be injected with
+              2.5&quot; of our foam insulation, providing an R-Value of R-19. If you
+              are building in a temperate climate, R-19 may be perfect, however if
+              your location demands more insulation, we can fill both baffles for
+              R-40 or if you live in the frigid arctic we will fill the entire block
+              for an industry leading R-84.
+            </p>
+          </div>
+
+          <!-- Image -->
+          <div class="order-1 md:order-2">
+            <figure>
+              <img
+                src="/images/airflow.jpg"
+                alt="Passive airflow diagram showing ventilation through ClimatBloc wall cores"
+                class="w-full rounded-xl shadow-lg"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+        </div>
+
+        <!-- Block 2 -->
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <!-- Image -->
+          <div class="order-1">
+            <figure>
+              <img
+                src="/images/foam_final.jpg"
+                alt="Foam injection in interior and exterior baffles of a ClimatBloc for higher R-values"
+                class="w-full rounded-xl shadow-lg"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+
+          <!-- Text -->
+          <div class="order-2">
+            <h3 class="text-xl font-semibold mb-3">Passive Wall Design</h3>
+            <p>
+              ClimatBlocs have a patent pending passive wall design. This means
+              that our wall systems are designed to maintain constant airflow
+              through the core of the wall. The perpetual airflow not only increases
+              the R-Value and performance of the wall, it also eliminates
+              condensation and the mold that often forms in standard wood framed
+              walls. The open chamber of the wall also acts as a sound barrier,
+              greatly reducing outside noise.
+            </p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <!-- Image -->
-      <div class="order-1 md:order-2">
-        <figure>
-          <img
-            src="/images/airflow.jpg"
-            alt="Passive airflow diagram showing ventilation through ClimatBloc wall cores"
-            class="w-full rounded-xl shadow-lg"
-            loading="lazy"
-          />
-        </figure>
-      </div>
-    </div>
-
-    <!-- Block 2: image left on desktop, image on top on mobile -->
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <!-- Image -->
-      <div class="order-1">
-        <figure>
-          <img
-            src="/images/foam_final.jpg"
-            alt="Foam injection in interior and exterior baffles of a ClimatBloc for higher R-values"
-            class="w-full rounded-xl shadow-lg"
-            loading="lazy"
-          />
-        </figure>
-      </div>
-
-      <!-- Text -->
-      <div class="order-2">
-        <h3 class="text-xl font-semibold mb-3">Passive Wall Design</h3>
-        <p>
-          ClimatBlocs have a patent pending passive wall design. This means
-          that our wall systems are designed to maintain constant airflow
-          through the core of the wall. The perpetual airflow not only increases
-          the R-Value and performance of the wall, it also eliminates
-          condensation and the mold that often forms in standard wood framed
-          walls. The open chamber of the wall also acts as a sound barrier,
-          greatly reducing outside noise.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-    <!-- Engineered Wall Systems -->
+    <!-- Engineered Wall Systems Copy Section -->
     <section id="engineered-wall-systems" class="bg-gray-50 py-16">
       <div class="container mx-auto px-4 max-w-4xl">
         <h2 class="text-3xl font-semibold mb-6">Engineered Wall Systems</h2>
@@ -259,9 +454,9 @@
         <p class="mb-6">
           There is an old saying in the construction industry, “speed, quality
           or cost, you can only pick two”. With ClimatBloc™ you can have all
-          three! At ClimatBloc™ we not only manufacture high quality, fully
-          insulated, structural construction blocks, we also provide Engineered
-          foundation and exterior wall systems. It’s simple, you send us your
+          three. At ClimatBloc™ we not only manufacture high quality, fully
+          insulated, structural construction blocks, we also provide engineered
+          foundation and exterior wall systems. It is simple, you send us your
           construction plans or even a simple floor plan and our Team of
           designers will engineer a complete foundation and exterior wall
           system.
@@ -282,22 +477,26 @@
         <p class="mb-6">
           With a crew of four the average ClimatBloc™ foundation for a 2,000sf
           home is set in place and ready for backfill in 5 - 6 hours. The
-          exterior walls assemble just as quickly! Your new home will go from a
+          exterior walls assemble just as quickly. Your new home will go from a
           hole in the ground to a completely dried in structure in a matter of
           days not weeks or months.
         </p>
       </div>
     </section>
-  <!-- Contact / Call to Action Section -->
-  <section class="section section-light">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl font-semibold mb-4">Let’s Build Something Great</h2>
-      <p class="text-lg text-gray-600 mb-6">Ready to learn how ClimatBloc™ can cut your build times and energy bills? Get in touch with our team now.</p>
-      <a href="/contact.html" class="inline-block px-6 py-3 rounded-lg bg-[#c6ba00] text-white font-semibold hover:opacity-90 transition">
-        Contact Us
-      </a>
-    </div>
-  </section>
+
+    <!-- Contact / Call to Action Section -->
+    <section class="section section-light">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-semibold mb-4">Let’s Build Something Great</h2>
+        <p class="text-lg text-gray-600 mb-6">
+          Ready to learn how ClimatBloc™ can cut your build times and energy bills? Get in touch with our team now.
+        </p>
+        <a href="/contact.html" class="inline-block px-6 py-3 rounded-lg bg-[#c6ba00] text-white font-semibold hover:opacity-90 transition">
+          Contact Us
+        </a>
+      </div>
+    </section>
+
     <!-- Footer -->
     <custom-footer></custom-footer>
 

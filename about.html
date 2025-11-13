@@ -22,6 +22,119 @@
     imagesrcset="/images/climatbloc-hero-image-2.jpg"
     fetchpriority="high"
   />
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": [
+          "Organization",
+          "LocalBusiness",
+          "HomeAndConstructionBusiness"
+        ],
+        "@id": "https://www.climatbloc.com/#organization",
+        "name": "ClimatBloc",
+        "url": "https://www.climatbloc.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.climatbloc.com/images/climatbloc-logo-color-white.svg"
+        },
+        "image": "https://www.climatbloc.com/images/climatbloc-hero-image-2.jpg",
+        "telephone": "+1-907-415-9176",
+        "email": "JFlynn@climatbloc.com",
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+1-907-415-9176",
+          "contactType": "sales",
+          "availableLanguage": "en"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.climatbloc.com/#website",
+        "url": "https://www.climatbloc.com/",
+        "name": "ClimatBloc",
+        "publisher": {
+          "@id": "https://www.climatbloc.com/#organization"
+        },
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": ["AboutPage", "WebPage"],
+        "@id": "https://www.climatbloc.com/about.html#webpage",
+        "url": "https://www.climatbloc.com/about.html",
+        "name": "About ClimatBloc",
+        "description": "Learn about ClimatBloc, our story, and the team behind our engineered interlocking block systems that make construction faster, stronger, and more energy efficient.",
+        "isPartOf": {
+          "@id": "https://www.climatbloc.com/#website"
+        },
+        "about": {
+          "@id": "https://www.climatbloc.com/#organization"
+        },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.climatbloc.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "About ClimatBloc",
+              "item": "https://www.climatbloc.com/about.html"
+            }
+          ]
+        },
+        "mainEntity": {
+          "@id": "https://www.climatbloc.com/#organization"
+        },
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.climatbloc.com/about.html#jeremy-flynn",
+        "name": "Jeremy Flynn",
+        "jobTitle": "CEO/COO",
+        "description": "Ivy League educated commercial and residential developer with more than 25 years of experience building across harsh climates.",
+        "image": "https://www.climatbloc.com/images/jeremy_flynn.jpeg",
+        "worksFor": {
+          "@id": "https://www.climatbloc.com/#organization"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.climatbloc.com/about.html#mac-radford",
+        "name": "Mac Radford",
+        "jobTitle": "Inventor/CTO",
+        "description": "Inventor of the ClimatBloc system with over 40 years of hands-on construction and development experience, focused on finding better ways to build.",
+        "image": "https://www.climatbloc.com/images/mac_radford.jpeg",
+        "worksFor": {
+          "@id": "https://www.climatbloc.com/#organization"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.climatbloc.com/about.html#pandwe-gibson",
+        "name": "Dr. Pandwe Gibson",
+        "jobTitle": "CDO",
+        "description": "Globally renowned speaker and published researcher in supply chain management, manufacturing automation, and green technology innovation.",
+        "image": "https://www.climatbloc.com/images/dr_pandwe_gibson.jpeg",
+        "worksFor": {
+          "@id": "https://www.climatbloc.com/#organization"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="bg-gray-50">
 
@@ -63,7 +176,6 @@
         <p>Our interlocking block system was born right here in the USA. We set out to make a building process that doesn’t compromise speed for strength, or insulation for sustainability.</p>
       </div>
       <div>
-        <!-- remove /static/ -->
         <img src="/images/airflow.jpg" alt="ClimatBloc™ team at work" class="rounded-xl shadow-lg w-full" loading="lazy">
       </div>
     </div>
@@ -74,10 +186,8 @@
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-semibold text-center mb-8">Why Builders Choose Us</h2>
 
-      <!-- grid-3 -> grid-cols-3 -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
         <div>
-          <!-- bg-yellow -> brand gold -->
           <div class="w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto bg-[#c6ba00]">
             <i data-feather="zap" class="text-black"></i>
           </div>
@@ -105,13 +215,11 @@
   </section>
 
   <!-- Team Section -->
-  <section class="section section-gray">
+  <section class="section section-light">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-semibold text-center mb-8">Meet the Team</h2>
 
-      <!-- fix weird hyphen and grid class -->
       <div class="grid md:grid-cols-3 gap-8">
-        <!-- Example cards -->
         <div class="card text-center p-6 bg-white rounded-xl shadow-sm">
           <img src="/images/jeremy_flynn.jpeg" alt="Jeremy Flynn, CEO/COO" class="rounded-full w-32 h-32 mx-auto mb-4 object-cover" loading="lazy">
           <h3 class="font-semibold">Jeremy Flynn, CEO/COO</h3>
@@ -134,7 +242,7 @@
   </section>
 
   <!-- Contact / Call to Action Section -->
-  <section class="section section-light">
+  <section class="section section-gray">
     <div class="container mx-auto px-4 text-center">
       <h2 class="text-3xl font-semibold mb-4">Let’s Build Something Great</h2>
       <p class="text-lg text-gray-600 mb-6">Ready to learn how ClimatBloc™ can cut your build times and energy bills? Get in touch with our team now.</p>
